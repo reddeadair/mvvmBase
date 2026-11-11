@@ -1,0 +1,6 @@
+# Derleme çıktıları ve paket önbelleği
+bin/
+obj/
+packages/
+.vs/
+*.user

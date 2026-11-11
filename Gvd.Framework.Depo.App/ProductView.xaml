@@ -1,0 +1,42 @@
+<UserControl controls:FormField.LabelType="{x:Type core:ProductDto}" x:Class="DepoSample.ProductView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Gvd.Framework.Wpf.Controls;assembly=Gvd.Framework.Wpf"
+             xmlns:res="clr-namespace:Gvd.Framework.Wpf.Markup;assembly=Gvd.Framework.Wpf"
+             xmlns:local="clr-namespace:DepoSample"
+             xmlns:core="clr-namespace:DepoSample;assembly=Gvd.Framework.Depo.Core">
+    <!--
+        Ürün formu. DataContext: ProductViewModel.
+        Miktar hesaplanan alandır (IsCalculated). Alan salt okunur görünür. Değer stok hareketlerinden gelir.
+    -->
+    <StackPanel>
+        <GroupBox Header="{res:Label BasicInfo, Type={x:Type local:ProductView}}">
+            <controls:FormPanel>
+                <controls:TextField DataContext="{Binding Code}" />
+                <controls:TextField DataContext="{Binding Name}" />
+                <controls:TextField DataContext="{Binding UnitWeight}" Unit="kg" />
+                <controls:TextField DataContext="{Binding Quantity}" Unit="adet" />
+            </controls:FormPanel>
+        </GroupBox>
+        <GroupBox Header="{res:Label StockMovements, Type={x:Type local:ProductView}}">
+            <!--
+                Stok hareketleri tablosu. DataContext listenin kendisidir. Yalnızca kolonları yaz.
+                Kolon başlığı kendiliğinden gelmez. Başlığı etiket dosyasından al: {res:Label ..., Type=StockMovementDto}.
+                Tip kolonu: seçenekler enum değerleridir. Kolon enum etiketini Resources.tr.xml dosyasından gösterir.
+                Tarih kolonu "2026-11-10" ve "10.11.2026" biçimini kabul eder.
+            -->
+            <controls:ListGrid DataContext="{Binding StockMovements}" Commands="Add, Remove, Move">
+                <controls:ListGrid.Columns>
+                    <controls:OrderColumn />
+                    <controls:PropertyColumn Width="*" Header="{res:Label Date, Type={x:Type core:StockMovementDto}}" Property="Date" />
+                    <controls:ComboColumn Width="*"
+                                          Header="{res:Label Type, Type={x:Type core:StockMovementDto}}"
+                                          ItemsSource="{x:Static core:StockMovementViewModel.MovementTypes}"
+                                          Property="Type" />
+                    <controls:PropertyColumn Width="*" Header="{res:Label Quantity, Type={x:Type core:StockMovementDto}}" Property="Quantity" />
+                    <controls:PropertyColumn Width="2*" Header="{res:Label Note, Type={x:Type core:StockMovementDto}}" Property="Note" />
+                </controls:ListGrid.Columns>
+            </controls:ListGrid>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

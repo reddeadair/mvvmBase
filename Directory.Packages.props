@@ -1,0 +1,12 @@
+<Project>
+
+  <!--
+    Bu dosya depo kökündeki Directory.Packages.props dosyasının yerine geçer. Merkezi sürüm yönetimini kapatır.
+    Her proje paket sürümünü kendi csproj dosyasında yazar.
+    Neden: bu dosya olmazsa csproj içindeki Version yazısı NU1008 hatası verir.
+  -->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+</Project>

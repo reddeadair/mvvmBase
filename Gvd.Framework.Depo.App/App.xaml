@@ -1,0 +1,16 @@
+<Application x:Class="DepoSample.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             ShutdownMode="OnMainWindowClose">
+    <!--
+        StartupUri yoktur. Pencereyi App.xaml.cs içindeki OnStartup açar. Neden: pencereden önce workspace kurulur.
+        Tema paketin içindedir. Tema sözlüğünü burada yükle. GvdWpf.Initialize çağrısı OnStartup içindedir.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Gvd.Framework.Wpf;component/Themes/Gvd.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

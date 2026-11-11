@@ -1,0 +1,22 @@
+<UserControl controls:FormField.LabelType="{x:Type core:WarehouseDto}" x:Class="DepoSample.WarehouseView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:Gvd.Framework.Wpf.Controls;assembly=Gvd.Framework.Wpf"
+             xmlns:res="clr-namespace:Gvd.Framework.Wpf.Markup;assembly=Gvd.Framework.Wpf"
+             xmlns:local="clr-namespace:DepoSample"
+             xmlns:core="clr-namespace:DepoSample;assembly=Gvd.Framework.Depo.Core">
+    <!--
+        Depo formu. DataContext: WarehouseViewModel.
+        Her form satırı tek bir alan kontrolüdür. DataContext ViewModel'deki property'dir.
+        Etiket kendiliğinden gelir: Resources.tr.xml içinde LabelType tipinin (WarehouseDto) property adlı etiketi.
+    -->
+    <StackPanel>
+        <GroupBox Header="{res:Label BasicInfo, Type={x:Type local:WarehouseView}}">
+            <controls:FormPanel>
+                <controls:TextField DataContext="{Binding Name}" />
+                <controls:TextField DataContext="{Binding Code}" />
+                <controls:TextField DataContext="{Binding City}" />
+            </controls:FormPanel>
+        </GroupBox>
+    </StackPanel>
+</UserControl>

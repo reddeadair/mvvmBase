@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Depo envanteri penceresi. WPF gerektirir: yalnızca Windows'ta derlenir.
+    Veri, kurallar ve ViewModel'ler Gvd.Framework.Depo.Core projesindedir. Bu proje yalnızca pencereyi, formları ve etiketleri içerir.
+
+    Çalıştırma: README.md "Kurulum" adımlarını uygula. Sonra bu klasörde "dotnet run" komutunu çalıştır.
+  -->
+  <PropertyGroup>
+    <!-- Exe: pencerenin yanında konsol da açılır. Hata nedeni konsolda görünür. Örnek proje (Gvd.Framework.Sample) de böyledir. -->
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+    <RootNamespace>DepoSample</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources.tr.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Wpf paketi Gvd.Framework paketini de getirir -->
+    <PackageReference Include="Gvd.Framework.Wpf" Version="$(GvdFrameworkVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gvd.Framework.Depo.Core\Gvd.Framework.Depo.Core.csproj" />
+  </ItemGroup>
+
+</Project>

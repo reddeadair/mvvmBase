@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Depo envanterinin etiketleri. Anahtar: Label.<tipin tam adı>.<üye>. Örnek: Label.DepoSample.WarehouseDto.Name
+     XML içinde anahtarın her parçası bir alt öğedir: <DepoSample> içinde <WarehouseDto>, onun içinde <Name label="..." />.
+     DTO'lar Core projesindedir, formlar App projesindedir. İkisinin namespace'i aynıdır: DepoSample. -->
+<Resources>
+  <DepoSample>
+    <WarehouseView>
+      <BasicInfo label="Depo Bilgileri" />
+    </WarehouseView>
+    <ShelfView>
+      <BasicInfo label="Raf Bilgileri" />
+    </ShelfView>
+    <ProductView>
+      <BasicInfo label="Ürün Bilgileri" />
+      <StockMovements label="Stok Hareketleri" />
+    </ProductView>
+    <WarehouseDto>
+      <Name label="Depo Adı" />
+      <Code label="Depo Kodu" />
+      <City label="Şehir" />
+    </WarehouseDto>
+    <ShelfDto>
+      <Code label="Raf Kodu" />
+      <MaxLoad label="En Çok Yük" />
+    </ShelfDto>
+    <ProductDto>
+      <Code label="Ürün Kodu" />
+      <Name label="Ürün Adı" />
+      <UnitWeight label="Birim Ağırlık" />
+      <Quantity label="Miktar" />
+      <StockMovements label="Stok Hareketleri" />
+    </ProductDto>
+    <StockMovementDto>
+      <Date label="TARİH" />
+      <Type label="TİP" />
+      <Quantity label="MİKTAR" />
+      <Note label="AÇIKLAMA" />
+    </StockMovementDto>
+    <MovementType>
+      <In label="Giriş" />
+      <Out label="Çıkış" />
+    </MovementType>
+  </DepoSample>
+</Resources>

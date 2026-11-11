@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Depo envanteri: WPF gerektirmeyen parça. Veri, kurallar, şema, kayıt katmanı ve düğüm ViewModel'leri buradadır.
+    Testler (Gvd.Framework.Depo.Tests) ve pencere (Gvd.Framework.Depo.App) bu projeyi kullanır.
+    Framework'ü paketten alır: Gvd.Framework (WPF yok).
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>DepoSample</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Gvd.Framework" Version="$(GvdFrameworkVersion)" />
+    <!-- ServiceCollection ve BuildServiceProvider: liste satırlarının ViewModel fabrikası (DepoSetup.CreateViewModelFactory) -->
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
+  </ItemGroup>
+
+</Project>

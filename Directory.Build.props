@@ -1,0 +1,23 @@
+<Project>
+
+  <!--
+    Bu dosya depo kökündeki Directory.Build.props dosyasının yerine geçer. MSBuild yukarı doğru ilk bulduğu dosyayı okur.
+    Neden: depo örneği Framework'ü yalnızca paketten alır. Depo kökündeki ayarlar (StyleCop, sürüm, paketleme) bu klasöre gelmez.
+
+    RestorePackagesPath: paketler bu klasördeki "packages" klasörüne iner, kullanıcının genel NuGet önbelleğine inmez.
+    Neden: aynı sürüm numarasıyla yeni Gvd.Framework paketi üretilebilir. NuGet aynı numaralı paketi önbellekten okur.
+    Yeni paketten sonra "packages/gvd.framework" klasörünü sil.
+
+    Ortak ayarlar: üç proje (Core, Tests, App) aynı ayarları kullanır.
+    TreatWarningsAsErrors: uyarı derlemeyi durdurur. Uyarıyı düzelt, kapatma.
+  -->
+  <PropertyGroup>
+    <RestorePackagesPath>$(MSBuildThisFileDirectory)packages/</RestorePackagesPath>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!-- Depo kökündeki Directory.Build.props içindeki GvdFrameworkVersion ile aynı olmalı. -->
+    <GvdFrameworkVersion>1.0.0</GvdFrameworkVersion>
+  </PropertyGroup>
+
+</Project>
