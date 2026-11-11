@@ -7,6 +7,8 @@ Ağaç: Depo → Raf (bir depoda en çok 50) → Ürün. Üründe stok hareketi 
 
 ## Projeler
 
+Üç proje `Gvd.Framework.Depo.sln` çözümündedir. Visual Studio ile bu dosyayı aç. App projesi yalnızca Windows'ta derlenir.
+
 | Proje | Hedef | İçerik |
 |---|---|---|
 | `Gvd.Framework.Depo.Core` | `net8.0` | Veri, kurallar, şema, kayıt katmanı ve düğüm ViewModel'leri. WPF yok |
